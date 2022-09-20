@@ -20,13 +20,18 @@ class ViewController: UIViewController {
     
     @IBAction func nomeCalculoButton(_ sender: Any) {
         
+        let peso = Double(nomePesoText.text!) ?? 0
+        let altura = Double(nomeAlturaText.text!) ?? 0
         
-        let peso = Double(nomePesoText.text!)!
-        let altura = Double(nomeAlturaText.text!)!
-        let calculo = peso/(altura*altura)
-        let calculoFormatado = String(format: "Resultado: %.2f", calculo)
+        if altura == 0 || peso == 0 {
+            return
+        } else {
+            let calculo = peso/(altura*altura)
+            let calculoFormatado = String(format: "Resultado: %.2f", calculo)
+            
+            resultadoLabel.text = String(calculoFormatado)
+        }
         
-        resultadoLabel.text = String(calculoFormatado)
     }
     
     
